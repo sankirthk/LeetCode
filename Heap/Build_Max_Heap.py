@@ -20,6 +20,19 @@ class Solution:
         if largest != i:
             arr[largest], arr[i] = arr[i], arr[largest]
             self.maxHeapify(arr, n, largest)
+    
+    def maxHeapExtract(self, arr: List[int]) -> Optional[int]:
+        n = len(arr)
+        if n == 0:
+            return -1
+        
+        arr[0], arr[n-1] = arr[n-1], arr[0]
+        maxElement = arr[n-1]
+        arr.pop()
+        n -= 1
+        self.maxHeapify(arr, n, 0)
+        
+        return maxElement
 
 if __name__ == "__main__":
     solution = Solution()
