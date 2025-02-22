@@ -32,8 +32,26 @@ class Solution:
         n -= 1
         self.maxHeapify(arr, n, 0)
         
-        return maxElement
-
+        return maxElement, arr
+    
+    def heapKeyInsert(self, heap: List[int], new_val: int, key: int) -> List[int]:
+        if new_val < heap[key]:
+            raise ValueError("New value is smaller than the current value")
+        
+        heap[key] = new_val
+        while key > 0 and heap[(key -1)//2] < heap[key]:
+            parent = (key - 1) // 2
+            heap[parent], heap[key] = heap[key], heap[parent]
+            key = parent
+        return heap
+    
+    def maxHeapInsert(self, heap: List[int], val: int, length: int) -> List[int]:
+        heap.append(float('-inf'))
+        newArr = self.heapKeyInsert(heap,val, length)
+        return newArr
+    
+    
+    
 if __name__ == "__main__":
     solution = Solution()
     input = [3, 9, 5, 8, 15, 7, 4, 10, 6, 12, 16]
