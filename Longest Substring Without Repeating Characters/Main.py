@@ -14,7 +14,7 @@ class Solution:
         return res
             
 if __name__ == "__main__":
-    s = "abcabcbb"
+    s = "dvdfe"
     solution = Solution()
     print("Input: ", s)
     print("Output: ", solution.lengthOfLongestSubstring(s))
