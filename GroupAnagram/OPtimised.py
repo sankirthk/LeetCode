@@ -15,4 +15,5 @@ if __name__=="__main__":
     solution = Solution()
     print(f"Input: {input1}")
     print(f"Output: {solution.groupAnagrams(input1)}")
-        
+    s = " abc"
+    s.lstrip()
