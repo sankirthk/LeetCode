@@ -11,7 +11,7 @@ class Solution:
         while left < right:
             area = (right - left) * min(height[left], height[right])
             maxArea = max(maxArea, area)
-            if left > right:
+            if height[left] > height[right]:
                 right-=1
             else:
                 left +=1
